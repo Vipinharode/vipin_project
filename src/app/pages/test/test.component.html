@@ -1,0 +1,19 @@
+<div class="container">
+    <div #backdrop class="backdrop">
+        <div class="highlights" [innerHTML]="highlightedItem"></div>
+    </div>
+  
+    <textarea  [(ngModel)]="inputItem"  #textarea></textarea>
+
+    <div class="combobox-options" *ngIf="showDropdown">
+      <list-item #Item *ngFor="let item of filteredList; let i = index" (click)="selectItem(i)"
+        [ngClass]="{ selected: i === selectedIndex }">{{ item }}
+      </list-item>
+    </div>
+
+</div>
+
+<div class="align-btns mt-5">
+    <button type="button" class="btn btn-sm btn-warning" (click)="addNotes()" style="margin-right: 10px">+ Add Notes</button>
+    <button type="button" class="btn btn-sm btn-warning" (click)="inputItem = ''">Reset</button>
+</div>
